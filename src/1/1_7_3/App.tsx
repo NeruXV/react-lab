@@ -4,24 +4,21 @@
 */
 
 import { recipes } from './data';
+import Recipe from './Recipe'
 
 export default function RecipeList() {
     return (
         <div>
             <h1>Recipes</h1>
             {recipes.map((recipe) => (
-                <div key={recipe.id}>
-                    <h2>{recipe.name}</h2>
-                    <ul>
-                        {recipe.ingredients.map(
-                            (ingredient) => (
-                                <li key={ingredient}>
-                                    {ingredient}
-                                </li>
-                            )
-                        )}
-                    </ul>
-                </div>
+                <Recipe
+                    // Передаем key, поскольку это ключ родительского элемента, 
+                    // для правильного обновления и рендеринга элементов
+                    key={recipe.id}
+                    id={recipe.id}
+                    name={recipe.name}
+                    ingredients={recipe.ingredients}
+                />
             ))}
         </div>
     );
