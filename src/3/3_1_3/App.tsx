@@ -7,9 +7,15 @@
     Представьте, что React не существует. Можете ли вы переделать код в index.js таким образом, чтобы сделать логику менее хрупкой и более похожей на версию React? Как бы это выглядело, если бы состояние было явным, как в React?
 */
 
+import { useEffect } from 'react';
+import { render } from './index';
 
 export default function EditProfile() {
+    useEffect(() => {
+        render();
+    }, []);
+
     return (
-        <div></div>
+        <div id="container"></div>
     );
 }
